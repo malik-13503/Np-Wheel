@@ -1,0 +1,417 @@
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans');
+  * {
+    margin: 0;
+    padding: 0;
+    font-family: "Lucida Grande", sans-serif;
+    font-size: 15px;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+  }
+  html,
+  body {
+    height: 100%;
+  }
+  body {
+    overscroll-behavior-y: contain;
+    position: static;
+    width: 100%;
+    touch-action: none;
+    display: flex; 
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* justify-items: stretch;
+    align-items: stretch; */
+   
+  }
+  .wheel-wrapper {
+    overflow: hidden;
+    height: 60vh;
+    width: 100%; 
+    transform: translateY(0%); /* adjust as needed */
+
+    /* margin-top: 30%; */
+  }
+
+  .gui-wrapper {
+    padding: 10px;
+    background-color: #f3f3f3;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  select {
+    padding: 2px;
+  }
+  label {
+    margin-right: 5px;
+  }
+  #preloader {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    background-color: #fff;
+  }
+  .loader {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 50px;
+    height: 50px;
+    margin: -25px 0 0 -25px;
+    border: 8px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 8px solid #009AC7;
+    animation: spin 2s linear infinite;
+  }
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  .back-link {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    opacity: 0.6;
+    text-decoration: none;
+    color: #000000;
+    
+  }
+  .back-link:hover {
+    opacity: 1;
+  }
+
+  .header {
+    position: relative;
+  }
+  .np-logo {
+    position: fixed;
+    top: 11%;
+    left: 50;
+    transform: translate(-50%, -50%);
+    max-width: 400px;
+    height: auto;
+    width: 15vw;
+    z-index: 1001;
+  }
+  .ultra-logo {
+    position: fixed;
+    top: 11%;
+    left: 50;
+    margin-left:200px;
+    
+    transform: translate(-50%, -50%);
+    max-width: 400px;
+    height: 8vw;
+    width: 8vw;
+    z-index: 1001;
+  }
+  .np1-logo {
+    position: fixed;
+    top: 11%;
+    justify-content:left;
+    align-items: normal;
+    left: 50;
+    margin-left:-200px;
+    transform: translate(-50%, -50%);
+    max-width: 400px;
+    height: auto;
+    width: 10vw;
+    z-index: 1001;
+  }
+  #quizbtn{
+    font-size:40px;
+    border-radius: 10px 10px 10px 10px;
+    padding: 10px 10px 5px 10px;
+    margin: 0 auto;
+    background-color: rgb(254, 3, 3);
+    color:white;
+  }
+
+  
+
+  @media only screen and (min-width:1070px) and (max-width:1090px){
+
+
+
+    
+    .wheel-wrapper{
+      height:60vh;
+      
+    }
+    
+    .np-logo {
+      position: fixed;
+      top: 11%;
+      left: 50;
+      transform: translate(-50%, -50%);
+      max-width: 400px;
+      height: 40vw;
+      width: 60vw;
+      z-index: 1001;
+    }
+    .ultra-logo {
+      position: fixed;
+      top: 11%;
+      left: 50;
+      margin-left: -400px;
+      transform: translate(-50%, -50%);
+      max-width: 400px;
+      height: 15vw;
+      width: 15vw;
+      z-index: 1001;
+    }
+    .np1-logo {
+      position: fixed;
+      top: 11%;
+      left: 50;
+      margin-left: 370px;
+      transform: translate(-50%, -50%);
+      max-width: 400px;
+      height: 18vw;
+      width: 20vw;
+      z-index: 1001;
+    }
+    #quizbtn{
+      top:100%;
+    }
+    #quizbtn{
+      display: box;
+  position: relative;
+  width: 350px;
+  height: 180px;
+  background: linear-gradient(to bottom, rgb(211, 0, 0) 0%, tomato 100%);
+  box-shadow: 0 4px 4px rgba(0, 0, 0, .3);
+  border-radius: 50%;
+  line-height: 100px;
+  text-align: center;
+  text-decoration: none;
+  color: white; 
+  font-size:100px;
+  margin-top: -90px;
+  
+    }
+    #quizbtn::before {
+      display: block;
+      position: absolute;
+      z-index: -1;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: black;
+      opacity: 0;
+      content: '';
+      animation: pulse 1s infinite;
+    }
+    #quizbtn:hover::before {
+      animation: none;
+      opacity: .4;
+      transform: scale(1.3);
+    }
+    #quizbtn.is-clicked {
+      background: linear-gradient(to bottom, gray 0%, dimgray 100%);
+    }
+    #quizbtn.is-clicked:before {
+      animation: blastOut 1s;
+    }
+    @keyframes pulse {
+      from {
+        transform: scale(1);
+        opacity: .4;
+      }
+      to {
+        transform: scale(1.3);
+        opacity: 0;
+      }
+    }
+    a{
+      text-decoration: none;
+    }
+    @keyframes blastOut {
+      from {
+        transform: scale(0.9);
+        opacity: .4;
+      }
+      to {
+        transform: scale(10);
+        opacity: 0;
+      }
+    }
+  }
+  @media only screen and (min-width:320px) and (max-width:440px){
+    .np1-logo{
+      margin-left:150px;
+      width: 20vw;
+      height: 20vw;
+    }
+    .ultra-logo{
+      margin-left: -150px;
+      top:14%;
+      width: 15vw;
+      height: 15vw;
+    }
+    #quizbtn{
+      display: box;
+  position: relative;
+  width: 100px;
+  height: 100px;
+  background: linear-gradient(to bottom, rgb(211, 0, 0) 0%, tomato 100%);
+  box-shadow: 0 4px 4px rgba(0, 0, 0, .3);
+  border-radius: 50%;
+  line-height: 100px;
+  text-align: center;
+  text-decoration: none;
+  color: white; 
+  
+    }
+    #quizbtn::before {
+      display: block;
+      position: absolute;
+      z-index: -1;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: black;
+      opacity: 0;
+      content: '';
+      animation: pulse 1s infinite;
+    }
+    #quizbtn:hover::before {
+      animation: none;
+      opacity: .4;
+      transform: scale(1.3);
+    }
+    #quizbtn.is-clicked {
+      background: linear-gradient(to bottom, gray 0%, dimgray 100%);
+    }
+    #quizbtn.is-clicked:before {
+      animation: blastOut 1s;
+    }
+    @keyframes pulse {
+      from {
+        transform: scale(1);
+        opacity: .4;
+      }
+      to {
+        transform: scale(1.3);
+        opacity: 0;
+      }
+    }
+    a{
+      text-decoration: none;
+    }
+    @keyframes blastOut {
+      from {
+        transform: scale(0.9);
+        opacity: .4;
+      }
+      to {
+        transform: scale(10);
+        opacity: 0;
+      }
+    }
+  
+
+  }
+
+  @media only screen and (max-width:360px){
+    .ultra-logo{
+      margin-left:-130px;
+    }
+    .np1-logo{
+      margin-left:130px ;
+    }
+    #quizbtn{
+    top:20%;
+    width:130px;
+    height: 100px;
+    }
+    .np-logo{
+      top: 10%;
+    }
+    .ultra-logo{
+      top: 10%;
+    }
+    .np1-logo{
+      top: 10%;
+    }
+  }
+
+  @media only screen and (min-width:1910px) and (max-width:1920px){
+    #quizbtn{
+      display: box;
+  position: relative;
+  width: 200px;
+  height: 100px;
+  background: linear-gradient(to bottom, rgb(211, 0, 0) 0%, tomato 100%);
+  box-shadow: 0 4px 4px rgba(0, 0, 0, .3);
+  border-radius: 50%;
+  line-height: 100px;
+  text-align: center;
+  text-decoration: none;
+  color: white; 
+    
+    }
+    #quizbtn::before {
+      display: block;
+      position: absolute;
+      z-index: -1;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: black;
+      opacity: 0;
+      content: '';
+      animation: pulse 1s infinite;
+    }
+    #quizbtn:hover::before {
+      animation: none;
+      opacity: .4;
+      transform: scale(1.3);
+    }
+    #quizbtn.is-clicked {
+      background: linear-gradient(to bottom, gray 0%, dimgray 100%);
+    }
+    #quizbtn.is-clicked:before {
+      animation: blastOut 1s;
+    }
+    @keyframes pulse {
+      from {
+        transform: scale(1);
+        opacity: .4;
+      }
+      to {
+        transform: scale(1.3);
+        opacity: 0;
+      }
+    }
+    a{
+      text-decoration: none;
+    }
+    @keyframes blastOut {
+      from {
+        transform: scale(0.9);
+        opacity: .4;
+      }
+      to {
+        transform: scale(10);
+        opacity: 0;
+      }
+    }
+    .np1-logo{
+      margin-left: 600px;
+    }
+    .np-logo{
+      width:40vh;
+      height:30vh;
+      top:11%;
+    }
+}
