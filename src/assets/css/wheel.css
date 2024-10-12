@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Noto+Sans');
+
   * {
     margin: 0;
     padding: 0;
@@ -140,9 +140,6 @@
 
   @media only screen and (min-width:1070px) and (max-width:1090px){
 
-
-
-    
     .wheel-wrapper{
       height:60vh;
       
@@ -246,15 +243,20 @@
       }
     }
   }
-  @media only screen and (min-width:320px) and (max-width:440px){
+  @media only screen and (min-width:320px) and (max-width:600px){
+    .np-logo{
+      width:40vw;
+      height:35vw;
+      top:13%;
+    }
     .np1-logo{
       margin-left:150px;
       width: 20vw;
-      height: 20vw;
+      height: 15vw;
     }
     .ultra-logo{
       margin-left: -150px;
-      top:14%;
+      top:11%;
       width: 15vw;
       height: 15vw;
     }
